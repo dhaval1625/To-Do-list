@@ -1,0 +1,184 @@
+:root {
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --light: #eee;
+    --pink: #ec4899;
+    --gray: #687280;
+    --purple: #885cf6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    min-height: 100vh;
+    background: var(--dark);
+    color: white;
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--gray);
+}
+
+#todo-form {
+    display: flex;
+}
+
+input,button:not(#save-list) {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#save-list {
+    padding: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(to left, var(--pink), var(--purple));
+    font-size: 1.5rem;
+    color:bisque;
+    border: none;
+}
+#save-list:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px 3px rgba(236, 162, 199, 0.689);
+}
+
+#save-list:active {
+    transform: scale(0.95);
+}
+
+#todo-input {
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#todo-input::placeholder {
+    color: var(--gray);
+}
+
+#todo-submit {
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    /* Following syntax is used to set text gradiant */
+    background-image: linear-gradient(to right, var(--pink), var(--purple) );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    cursor: pointer;
+    transition: 0.4s;
+    
+}
+
+#todo-submit:hover {
+    opacity: 0.8;
+}
+
+#todo-submit:active {
+    opacity: 0.6;
+}
+
+main {
+    /* flex: 1 1 0%; */
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--gray);
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem 1rem;
+    margin-left: 0;
+}
+
+.content {
+    flex: 1 1 0%;
+}
+.text {
+    width: 100%;
+}
+
+.text,.edit,.delete,.save {
+    font-size: 1.25rem;
+    color: var(--light);
+}
+
+.text:not(:read-only) {
+    color: var(--pink);
+    
+}
+
+.edit,.save {
+    color: rgb(150, 73, 38);
+    /* background: linear-gradient(to right, var(--pink), var(--purple) );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    cursor: pointer;
+}
+.delete {
+    color: rgb(219, 51, 132);
+    cursor: pointer;
+}
+
+.edit:hover,.delete:hover,.save:hover {
+    opacity: 0.8;
+}
+.edit:active,.delete:active,.save:active {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 500px) {
+    .edit,.delete,.save {
+        font-size: 0.9rem;
+    }
+    .text {
+        font-size: 1.15rem;
+    }
+
+    .task {
+        margin: 0.5rem 0;
+    }
+    header,main {
+        padding: 1rem 5px;
+    }
+}
